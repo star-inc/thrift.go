@@ -1,5 +1,3 @@
-// +build go1.7
-
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements. See the NOTICE file
@@ -23,10 +21,4 @@ package thrift
 
 import "context"
 
-type mockProcessor struct {
-	ProcessFunc func(in, out TProtocol) (bool, TException)
-}
-
-func (m *mockProcessor) Process(ctx context.Context, in, out TProtocol) (bool, TException) {
-	return m.ProcessFunc(in, out)
-}
+var defaultCtx = context.Background()
